@@ -25,7 +25,9 @@ public:
 void Display()
 {
 cout<<"length="<<length<<endl;
-
+for(int i=0;i<length;i++)
+{cout<<*(A+i)<<endl;
+}
 }
 //void operator=(MyVector &v2)
 //{
@@ -49,9 +51,15 @@ else
 {
 length=l;
 double *new_A;
-new_A=(double*)realloc(A,l*sizeof(double));
+new_A=(double*)realloc(A,length*sizeof(double));
 A=new_A;
 return true;
+}
+}
+void set()
+{
+for(int i=0;i<length;i++)
+{cin>>*(A+i);
 }
 }
 private:
@@ -62,10 +70,11 @@ int main()
 {
     MyVector v1;
     MyVector v2(6);
+v2.set();
 v2.Display();
 MyVector v3=v2;
 v3.Display();
-v2.redim(10);
+v2.redim(4);
 v2.Display();
 MyVector v4;
 v4=v3+v2;
