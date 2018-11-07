@@ -12,7 +12,7 @@ public:
     {
 
         length=l;
-        *A=length;
+        A=new double[length];
     }
 MyVector(MyVector &v2)
 {
@@ -25,7 +25,8 @@ A=v2.A;
 void Display()
 {
 cout<<"length="<<length<<endl;
-cout<<"*A="<<A<<endl;
+cout<<"*A="<<*A<<endl;
+}
 private:
     int length;
     double *A;
