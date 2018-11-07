@@ -7,6 +7,7 @@ public:
     MyVector()
     {
         cout<<"default constructor called"<<endl;
+	A=NULL;
     }
     MyVector(int l)
     {
@@ -36,11 +37,30 @@ for(int i=0;i<length;i++)
 //}
 MyVector operator+(MyVector &v2)
 {
-MyVector v;
-v.length=(length+v2.length);
-*v.A=*A+*v2.A;
-return v;
+
+
+for(int i=0;i<length;i++)
+{v2.A[i]+=A[i];
 }
+return v2;
+}
+MyVector operator*(MyVector &x)
+{
+for(int i=0;i<length;i++)
+{
+x.A[i]*=A[i];
+}
+return x;
+}
+//void operator**(double x)
+//{
+//for(int i=0;i<length;i++)
+//{
+//A[i]*=x;
+//}
+
+//}
+
 bool redim(int l)
 {
 if(length==l)
@@ -52,12 +72,14 @@ else
 length=l;
 double *new_A;
 new_A=(double*)realloc(A,length*sizeof(double));
+
 A=new_A;
+
 return true;
 }
 }
-void set()
-{
+void setinputs()
+{cout<<"elements of vector"<<endl;
 for(int i=0;i<length;i++)
 {cin>>*(A+i);
 }
@@ -67,18 +89,42 @@ private:
     double *A;
 };
 int main()
-{
+{int size,new_size;
     MyVector v1;
-    MyVector v2(6);
-v2.set();
+cout<<"length=";
+cin>>size;
+    MyVector v2(size);
+
+v2.setinputs();
 v2.Display();
+cout<<"assign vector v3 to v2"<<endl;
 MyVector v3=v2;
+cout<<"Display function of V3"<<endl;
 v3.Display();
-v2.redim(4);
-v2.Display();
+
 MyVector v4;
+
+
+
+
+cout<<"+ operator overloading called"<<endl;
 v4=v3+v2;
+cout<<"display function of  v4"<<endl;
 v4.Display();
+MyVector v5;
+cout<<"* operator overloading called"<<endl;
+v5=v2*v3;
+cout<<"display function of  v5"<<endl;
+v5.Display();
+cout<<"new length=";
+cin>>new_size;
+cout<<"redim function"<<endl;
+v2.redim(new_size);
+cout<<"display function of new_size v2"<<endl;
+v2.Display();
+
+
+
 
     return 0;
 }
