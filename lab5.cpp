@@ -46,10 +46,11 @@ int main()
 {
     MyVector v1;
     MyVector v2(6);
-v2.Display;
+v2.Display();
 MyVector v3=v2;
-v3.Display;
+v3.Display();
 v2.redim(10);
-v2.Display;
+
+v2.Display();
     return 0;
 }
