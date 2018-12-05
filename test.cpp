@@ -70,15 +70,64 @@ private:
 int main()
 {
   AudioClip A1;
-  int c,r,s;
+  int c,r,s,count=0;
   cout<<"channel=";
   cin>>c;
+  while(count!=1)
+  {
+
+    if(c==1 or c==2)
+    {
+      count=1;
+    }
+
+else
+    {cout<<"invalid input retry"<<endl;
+    cout<<"channel=";
+    cin>>c;
+  }
+
+  }
+  count=0;
+
   A1.set_channel(c);
   cout<<"resolution=";
   cin>>r;
+  while(count!=1)
+  {
+
+    if(r==8 or r==16 or r==24)
+    {
+      count=1;
+    }
+
+else
+    {cout<<"invalid input retry"<<endl;
+    cout<<"resolution=";
+    cin>>r;
+  }
+
+  }
+  count=0;
   A1.set_resolution(r);
+
   cout<<"samplerate=";
   cin>>s;
+  while(count!=1)
+  {
+
+    if(s==22050 or s==44100 or s==88200)
+    {
+      count=1;
+    }
+
+else
+    {cout<<"invalid input retry"<<endl;
+    cout<<"resolution=";
+    cin>>s;
+  }
+
+  }
   A1.set_samplerate(s);
   cout<<"channels="<<A1.get_channel()<<endl;
   cout<<"resolution="<<A1.get_resolution()<<endl;
