@@ -31,7 +31,7 @@ public:
   {
     if(sa==22050 or sa==44100 or sa==88200)
 
-    {samplerate=ch;}
+    {samplerate=sa;}
     else
     {
       cout<<"invalid samplerate"<<endl;
@@ -51,7 +51,7 @@ public:
   }
   bool studioquality(AudioClip& A)
   {
-    
+
   }
   int datasize(int d)
   {
@@ -62,3 +62,17 @@ public:
 private:
   int channels,resolution,samplerate;
 };
+int main()
+{
+  AudioClip A1;
+  int c,r,s;
+  cout<<"channel=";
+  cin>>c;
+  A1.set_channel(c);
+  cout<<"resolution=";
+  cin>>r;
+  A1.set_resolution(r);
+  cout<<"samplerate=";
+  cin>>s;
+  A1.set_samplerate(s);
+}
