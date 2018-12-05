@@ -49,9 +49,14 @@ public:
   {
     return samplerate;
   }
-  bool studioquality(AudioClip& A)
+  bool studioquality()
   {
-
+   if(channels==2 and resolution==24 and samplerate==88200)
+   {
+     return true;
+   }
+   else
+   return false;
   }
   int datasize(int d)
   {
@@ -75,4 +80,17 @@ int main()
   cout<<"samplerate=";
   cin>>s;
   A1.set_samplerate(s);
+  cout<<"channels="<<A1.get_channel()<<endl;
+  cout<<"resolution="<<A1.get_resolution()<<endl;
+  cout<<"samplerate="<<A1.get_samplerate()<<endl;
+  int q=A1.studioquality();
+  if(q==0)
+  {
+    cout<<"not maximum quality"<<endl;
+  }
+  else
+  {
+    cout<<"maximum quality"<<endl;
+  }
+
 }
