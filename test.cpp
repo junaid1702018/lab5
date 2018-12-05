@@ -92,5 +92,9 @@ int main()
   {
     cout<<"maximum quality"<<endl;
   }
+  int d;
+  cout<<"duration time=";
+  cin>>d;
+  cout<<"bits="<<A1.datasize(d)<<endl;
 
 }
